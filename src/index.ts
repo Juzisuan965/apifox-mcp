@@ -11,7 +11,11 @@ const APIFOX_AUTH = process.env.APIFOX_AUTH || "";
 
 const server = new McpServer({
   name: "apifox-mcp",
-  version: "1.0.0",
+  version: "1.0.1",
+  capabilities: {
+    resources: {},
+    tools: {},
+  },
 });
 
 // ... set up server resources, tools, and prompts ...
@@ -74,4 +78,5 @@ async function main(): Promise<void> {
 
 main().catch((error: Error) => {
   console.error("Fatal error in main():", error);
+  process.exit(1);
 });
